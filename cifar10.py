@@ -39,8 +39,8 @@ def load(path):
     max_v = np.max(tmp, axis=0)
     min_v = np.min(tmp, axis=0)
     dif = max_v - min_v
-    train_data /= dif
-    test_data /= dif
+    train_data = (train_data - min_v) / dif
+    test_data = (test_data - min_v) / dif
     # print(dif.shape)
     # print(train_data.shape)
     # print(test_data.shape)
